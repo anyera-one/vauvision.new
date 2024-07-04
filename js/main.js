@@ -1,15 +1,11 @@
-// start height
-let oldWidth = window.innerWidth;
-const docheight = document.documentElement;
-const headert = document.querySelector('.header__transparent');
-docheight.style.setProperty('--height', `${window.innerHeight}px`);
-const appHeight = () => {
-  var newWidth = window.innerWidth;
-  if (newWidth != oldWidth) {
-    docheight.style.setProperty('--height', `${window.innerHeight}px`);
-  }
-  oldWidth = window.innerWidth;
-}
-window.addEventListener('resize', appHeight);
-appHeight();
-// end height
+// start header
+    window.addEventListener('scroll', () => { 
+        let scrollTop = window.scrollY;
+    let headerWrapper = document.querySelector('.header');
+    if(scrollTop >= 10){
+        headerWrapper.classList.add('hide');
+    }else{    
+        headerWrapper.classList.remove('hide');
+    }
+    });
+// end header
