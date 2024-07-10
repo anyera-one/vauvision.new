@@ -105,18 +105,75 @@ if(priceSlider){
 }
 // end reviewsSlider
 
+// start articles__swiper
+
+const articleSlider = document.querySelector('.articles__swiper');
+if(articleSlider){
+    var articlesSlider = new Swiper('.articles__swiper', {
+    loop: true,
+    speed: 500,
+    slidesPerView: 2,
+    spaceBetween: 55,
+    slidesPerGroup: 2,
+        
+    // pagination: {
+    //   el: '.price__pagination_min',
+    //   clickable: true,
+    // },
+    pagination: {
+          el: '.articles__pagination',
+          type:'fraction',
+          formatFractionCurrent: addZero,
+          formatFractionTotal: addZero
+          },
+    navigation: {
+      nextEl: '.articles__next',
+      prevEl: '.articles__prev',
+    },
+    breakpoints: {
+      1024: {
+       
+        }
+      }
+  });
+}
+// end articles__swiper
+
 function addZero(num){
     return (num > 9) ? num : '0' + num
 }
 
 
-// start questions 
-  const questions = document.querySelectorAll('.questions__item')
-  const answer = document.querySelectorAll('.questions__item_answer')
-  console.log(questions)
-  questions.forEach(function(question, i) {
-    question.addEventListener('click', function (e) {
-      answer[i].classList.toggle('active')
-    })
-  })
+
+
+// start questions
+if(document.querySelector('.questions__item')) {
+  var questionsitem = document.getElementsByClassName("questions__item");
+  var i;
+  
+  for (i = 0; i < questionsitem.length; i++) {
+    questionsitem[i].onclick = function(e) {
+      var questionsitemNext = this.children[1].children[1];
+      var questionsitembottom = document.getElementsByClassName("questions__item_bottom");
+      var questionsitemActive = document.getElementsByClassName("questions__item active");
+  
+      if (questionsitemNext.style.maxHeight) {
+        questionsitemNext.style.maxHeight = null;
+        this.classList.remove("active");
+      } else {
+        for (var q = 0; q < questionsitemActive.length; q++) {
+          questionsitemActive[q].classList.remove("active");
+          questionsitembottom[q].classList.remove("active");
+        }
+        for (var p = 0; p < questionsitembottom.length; p++) {
+          this.classList.remove("active");
+          questionsitembottom[p].classList.remove("active");
+          questionsitembottom[p].style.maxHeight = null;
+        }
+        questionsitemNext.style.maxHeight = questionsitemNext.scrollHeight + "px";
+        this.classList.add("active");
+      }
+    };
+  }
+}
 // end questions 
