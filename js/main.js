@@ -16,7 +16,7 @@ const reviewsSlider = document.querySelector('.reviews__swiper');
 if(reviewsSlider){
     var reviewSlider = new Swiper('.reviews__swiper', {
     loop: true,
-    slidesPerView: 1.2,
+    slidesPerView: 1.1,
     spaceBetween: 14,
     speed: 500,
     slidesPerGroup: 1,
@@ -30,22 +30,11 @@ if(reviewsSlider){
       prevEl: '.reviews__prev',
     },
     breakpoints: {
-      530: {
-          slidesPerView: 2,
+      768:{
+        slidesPerView: 2,
           slidesPerGroup: 2,
           centeredSlides: false,
-          spaceBetween: 20,
-          pagination: {
-            el: '.reviews__pagination',
-            type:'fraction',
-            formatFractionCurrent: addZero,
-            formatFractionTotal: addZero
-          },
-        },
-      768:{
-        slidesPerView: 3,
-        slidesPerGroup: 32,
-        centeredSlides: false,
+          spaceBetween: 32,
         pagination: {
           el: '.reviews__pagination',
           type:'fraction',
@@ -77,30 +66,36 @@ const priceSlider = document.querySelector('.price__swiper');
 if(priceSlider){
     var pricesSlider = new Swiper('.price__swiper', {
     loop: true,
+    slidesPerView: 1.1,
+    spaceBetween: 14,
     speed: 500,
-    slidesPerView: 2,
-    spaceBetween: 40,
-    slidesPerGroup: 2,
-        
-    // pagination: {
-    //   el: '.price__pagination_min',
-    //   clickable: true,
-    // },
+    slidesPerGroup: 1,
+    centeredSlides: true,
     pagination: {
-          el: '.price__pagination',
-          type:'fraction',
-          formatFractionCurrent: addZero,
-          formatFractionTotal: addZero
-          },
+      el: '.price__pagination_min',
+      clickable: true,
+    },
     navigation: {
       nextEl: '.price__next',
       prevEl: '.price__prev',
     },
     breakpoints: {
-      1024: {
-       
+      1440: {
+       spaceBetween: 40,
         }
-      }
+      },
+      768:{
+        slidesPerView: 2,
+          slidesPerGroup: 2,
+          centeredSlides: false,
+          spaceBetween: 21,
+          pagination: {
+            el: '.price__pagination',
+            type:'fraction',
+            formatFractionCurrent: addZero,
+            formatFractionTotal: addZero
+          },
+      },
   });
 }
 // end reviewsSlider
@@ -112,9 +107,9 @@ if(articleSlider){
     var articlesSlider = new Swiper('.articles__swiper', {
     loop: true,
     speed: 500,
-    slidesPerView: 2,
-    spaceBetween: 55,
-    slidesPerGroup: 2,
+    slidesPerView: 1,
+    spaceBetween: 28,
+    slidesPerGroup: 1,
         
     // pagination: {
     //   el: '.price__pagination_min',
@@ -131,10 +126,14 @@ if(articleSlider){
       prevEl: '.articles__prev',
     },
     breakpoints: {
-      1024: {
-       
+      1440: {
+        spaceBetween: 55,
         }
-      }
+      },
+      768:{
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+      },
   });
 }
 // end articles__swiper
@@ -177,3 +176,44 @@ if(document.querySelector('.questions__item')) {
   }
 }
 // end questions 
+
+
+
+
+const slider = document.querySelector('.advantages__swiper');
+
+function mobileSlider() {
+	if (window.innerWidth <= 768 && slider.dataset.mobile == 'false') {
+		mySwiper = new Swiper(slider, {
+			slidesPerView: 1,
+			spaceBetween: 20,
+			loop: true,
+			pagination: {
+			 	el: '.advantages__pagination_min',
+			    clickable: true,
+            },
+           
+		});
+
+		slider.dataset.mobile = 'true';
+	}
+
+	if (window.innerWidth > 768) {
+		slider.dataset.mobile = 'false';
+		if (slider.classList.contains('swiper-container-initialized')) {
+			mySwiper.destroy();
+		}
+	}
+}
+
+mobileSlider()
+
+window.addEventListener('resize', () => {
+	mobileSlider();
+});
+
+
+
+
+
+
