@@ -3584,6 +3584,9 @@ a.footer__tel {
 
 /* start 430px */
 @media (max-width: 430px) {
+  .hero__head {
+    padding-right: 0;
+  }
   .pause {
     width: 64px;
     height: 44px;
