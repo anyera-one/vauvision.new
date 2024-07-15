@@ -12,32 +12,54 @@ window.addEventListener('DOMContentLoaded', () => {
   // end header
 
   // start header_min
+  const html = document.querySelector('html');
+  const bodyOverlay = document.querySelector('.overlay');
   const hamburger = document.querySelector('.header__hamburger');
+  const containerHeaderMin = document.querySelector('.header_min__container');
   if (hamburger) {
-    const containerHeaderMin = document.querySelector('.header_min__container')
     hamburger.onclick = function() {
-      containerHeaderMin.classList.add('active')
+      containerHeaderMin.classList.add('active');
+      html.classList.add("noscroll");
+      bodyOverlay.classList.add("active");
     }
     containerHeaderMin.onclick = function(e){
       if (e.target.classList != "header_min__text") {
-        containerHeaderMin.classList.remove('active')
+        containerHeaderMin.classList.remove('active');
+        html.classList.remove("noscroll");
+        bodyOverlay.classList.remove("active");
       }
     }
   }
   //end header_min
 
+  // start overlay
+  bodyOverlay.addEventListener('click', function() {
+    html.classList.remove("noscroll");
+    bodyOverlay.classList.remove("active");
+    containerHeaderMin.classList.remove('active');
+  })
+  // end overlay
+
   // start reviewsSlider
   const reviewsSlider = document.querySelector('.reviews__swiper');
   if(reviewsSlider){
-      var reviewSlider = new Swiper('.reviews__swiper', {
-      // loop: true,
+    var reviewSlider = new Swiper('.reviews__swiper', {
+      loop: false,
       slidesPerView: 1.1,
       spaceBetween: 14,
       speed: 500,
-      slidesPerGroup: 1,
       centeredSlides: true,
       pagination: {
-        el: '.reviews__pagination_min',
+        el: '.reviews__pagination',
+        type: 'bullets',
+        renderBullet: function (index, className) {
+          if((index + 1) >= 10) {
+            var reviewscountzero = '';
+          } else {
+            var reviewscountzero = '0';
+          }
+          return '<span class="' + className + '">' + '<span class="count">' + reviewscountzero + (index + 1) + "</span>" + "</span>";
+        },
         clickable: true,
       },
       navigation: {
@@ -47,7 +69,6 @@ window.addEventListener('DOMContentLoaded', () => {
       breakpoints: {
         768:{
           slidesPerView: 2,
-          slidesPerGroup: 2,
           centeredSlides: false,
           spaceBetween: 32,
         },
@@ -55,16 +76,24 @@ window.addEventListener('DOMContentLoaded', () => {
           slidesPerView: 4,
           spaceBetween: 60,
           centeredSlides: false,
-          slidesPerGroup: 4,
-          pagination: {
-            el: '.reviews__pagination_max',
-            type:'fraction',
-            formatFractionCurrent: addZero,
-            formatFractionTotal: addZero
-            },
+        }
+      },
+      on: {
+        slideChange: function (swiper) {
+          const count = document.querySelector('.reviews__pagination .swiper-pagination-bullet-active .count');
+          if (count) {
+            const reviewscount = document.querySelector('.reviews__count');
+            reviewscount.innerHTML = count.innerHTML;
           }
         }
+      }
     });
+    if(document.querySelector('.reviews__list').children.length >= 10) {
+      var reviewstotalzero = '';
+    } else {
+      var reviewstotalzero = '0';
+    }
+    document.querySelector('.reviews__total').innerHTML = reviewstotalzero + document.querySelector('.reviews__list').children.length;
   }
   // end reviewsSlider
 
@@ -78,32 +107,51 @@ window.addEventListener('DOMContentLoaded', () => {
       speed: 500,
       slidesPerGroup: 1,
       centeredSlides: true,
-      pagination: {
-        el: '.price__pagination_min',
-        clickable: true,
-      },
       navigation: {
         nextEl: '.price__next',
         prevEl: '.price__prev',
       },
+      pagination: {
+        el: '.price__pagination',
+        type: 'bullets',
+        renderBullet: function (index, className) {
+          if((index + 1) >= 10) {
+            var pricecountzero = '';
+          } else {
+            var pricecountzero = '0';
+          }
+          return '<span class="' + className + '">' + '<span class="count">' + pricecountzero + (index + 1) + "</span>" + "</span>";
+        },
+        clickable: true,
+      },
       breakpoints: {
         1440: {
         spaceBetween: 40,
+        slidesPerView: 2,
+        centeredSlides: false,
         },
         768:{
           slidesPerView: 2,
-          slidesPerGroup: 2,
           centeredSlides: false,
           spaceBetween: 21,
-          pagination: {
-            el: '.price__pagination_max',
-            type:'fraction',
-            formatFractionCurrent: addZero,
-            formatFractionTotal: addZero
-          },
         },
       },
+      on: {
+        slideChange: function (swiper) {
+          const count = document.querySelector('.price__pagination .swiper-pagination-bullet-active .count');
+          if (count) {
+            const pricecount = document.querySelector('.price__count');
+            pricecount.innerHTML = count.innerHTML;
+          }
+        }
+      }
     });
+    if(document.querySelector('.price__list').children.length >= 10) {
+      var pricetotalzero = '';
+    } else {
+      var pricetotalzero = '0';
+    }
+    document.querySelector('.price__total').innerHTML = pricetotalzero + document.querySelector('.price__list').children.length;
   }
   // end reviewsSlider
 
@@ -129,6 +177,8 @@ window.addEventListener('DOMContentLoaded', () => {
       breakpoints: {
         1440: {
           spaceBetween: 55,
+          slidesPerView: 2,
+          slidesPerGroup: 2,
           },
         768:{
           slidesPerView: 2,
@@ -218,7 +268,7 @@ window.addEventListener('DOMContentLoaded', () => {
     '.advantages__swiper.swiper',
     {
       // loop: true,
-      slidesPerView: 1.2,
+      slidesPerView: 1.1,
       spaceBetween: 14,
       centeredSlides: true,
       pagination: {
