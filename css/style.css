@@ -3574,7 +3574,7 @@ a.footer__tel {
     padding: 0;
   }
   .reviews__block {
-    padding: 110px 0;
+    padding: 130px 0;
   }
   .reviews__title {
     margin-right: auto;
@@ -3625,8 +3625,11 @@ a.footer__tel {
     -webkit-transform: scale(1);
     transform: scale(1);
   } 
-  .reviews__slider, .price__slider {
+ .price__slider {
     padding: 52px 0 0;
+  }
+  .reviews__slider {
+    padding: 0;
   }
   .reviews__title {
     margin-left: 20px
