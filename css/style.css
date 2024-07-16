@@ -3106,7 +3106,13 @@ a.footer__tel {
     border-radius: 17px;
     gap: 6px;
   }
-  
+  .header__language svg {
+    width: 23px;
+    height: 23px;
+  }
+  .header__language {
+    font-size: 14px;
+  }
   .header_min__container,
   .header_min__container a{
     color: var(--black);
@@ -3522,6 +3528,16 @@ a.footer__tel {
   .performers__subtitle {
     font-size: 20px;
   }
+  .advantages__item_text {
+    padding: 21px 30px 16px 28px;
+    gap: 10px;
+  }
+  .advantages__item_title {
+    font-size: 30px;
+  }
+  .advantages__item_subtitle {
+    font-size: 20px;
+  }
   .performers__text_1 .performers__text_right>p:nth-child(2) {
     height: 15px;
     margin-right: 210px;
@@ -3554,7 +3570,7 @@ a.footer__tel {
     padding: 0;
   }
   .reviews__block {
-    padding: 130px 0;
+    padding: 110px 0;
   }
   .reviews__title {
     margin-right: auto;
