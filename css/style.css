@@ -3778,8 +3778,13 @@ a.footer__tel {
 
 /* start 430px */
 @media (max-width: 430px) {
+<<<<<<< HEAD
   .users__title {
     font-size: 28px;
+=======
+  .hero__head {
+    padding-right: 0;
+>>>>>>> 03b2c19b377d4dfa4a54e00f9351f6d0c17afab3
   }
   .pause {
     width: 64px;
