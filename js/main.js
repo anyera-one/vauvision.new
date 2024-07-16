@@ -53,16 +53,26 @@ window.addEventListener('DOMContentLoaded', () => {
         el: '.reviews__pagination',
         type: 'bullets',
         renderBullet: function (index, className) {
-          if((index + 1) >= 10) {
-            var reviewscountzero = '';
-          } else {
-            var reviewscountzero = '0';
-          }
           if (document.documentElement.clientWidth >= 1024) {
+            if((index + 1) >= 7) {
+              var reviewscountzero = '';
+            } else {
+              var reviewscountzero = '0';
+            }
             return '<span class="' + className + '">' + '<span class="count">' + reviewscountzero + ((index + 1) + 3) + "</span>" + "</span>";
           } else if (document.documentElement.clientWidth >= 768) {
+            if((index + 1) >= 9) {
+              var reviewscountzero = '';
+            } else {
+              var reviewscountzero = '0';
+            }
             return '<span class="' + className + '">' + '<span class="count">' + reviewscountzero + ((index + 1) + 1) + "</span>" + "</span>";
           } else {
+            if((index + 1) >= 10) {
+              var reviewscountzero = '';
+            } else {
+              var reviewscountzero = '0';
+            }
             return '<span class="' + className + '">' + '<span class="count">' + reviewscountzero + (index + 1) + "</span>" + "</span>";
           }
         },
@@ -73,14 +83,19 @@ window.addEventListener('DOMContentLoaded', () => {
         prevEl: '.reviews__prev',
       },
       breakpoints: {
-        768:{
+        769:{
           slidesPerView: 2,
           centeredSlides: false,
           spaceBetween: 32,
         },
         1024: {
           slidesPerView: 4,
-          spaceBetween: 40,
+          spaceBetween: 31,
+          centeredSlides: false,
+        },
+        1440: {
+          slidesPerView: 4,
+          spaceBetween: 60,
           centeredSlides: false,
         }
       },
@@ -128,14 +143,19 @@ window.addEventListener('DOMContentLoaded', () => {
         el: '.price__pagination',
         type: 'bullets',
         renderBullet: function (index, className) {
-          if((index + 1) >= 10) {
-            var pricecountzero = '';
-          } else {
-            var pricecountzero = '0';
-          }
           if (document.documentElement.clientWidth <= 767) {
+            if((index + 1) >= 10) {
+              var pricecountzero = '';
+            } else {
+              var pricecountzero = '0';
+            }
             return '<span class="' + className + '">' + '<span class="count">' + pricecountzero + (index + 1) + "</span>" + "</span>";
           } else {
+            if((index + 1) >= 9) {
+              var pricecountzero = '';
+            } else {
+              var pricecountzero = '0';
+            }
             return '<span class="' + className + '">' + '<span class="count">' + pricecountzero + ((index + 1) + 1) + "</span>" + "</span>";
           }
         },
@@ -147,7 +167,7 @@ window.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 2,
         centeredSlides: false,
         },
-        768:{
+        769:{
           slidesPerView: 2,
           centeredSlides: false,
           spaceBetween: 21,
@@ -158,7 +178,7 @@ window.addEventListener('DOMContentLoaded', () => {
           const count = document.querySelector('.price__pagination .swiper-pagination-bullet-active .count');
           if (count) {
             const pricecount = document.querySelector('.price__count');
-            pricecount.innerText = count.innerText;
+            pricecount.innerHTML = count.innerHTML;
           }
         }
       }
@@ -286,7 +306,7 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   resizableSwiper(
-    '(max-width: 768px)',
+    '(max-width: 660px)',
     '.advantages__swiper.swiper',
     {
       // loop: true,
