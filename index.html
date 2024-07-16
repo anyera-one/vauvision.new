@@ -135,13 +135,15 @@
             <button class="hero__btn btn">Выложить музыку на площадках</button>
           </div>
           <div class="hero__video">
-            <div class="hero__video_img">
-              <img src='img/hero/hero_human.webp'/>
-              <div class="hero__video_pause pause">
-                <svg width="35" height="39" viewBox="0 0 35 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="hero__video_container">
+              <button class="hero__video_img" vid="b7ui4o_zK0Q" onclick="video_load(this)">
+                <img src="img/hero/hero_human.webp" alt="human"/>
+                <div class="hero__video_pause pause">
+                  <svg width="35" height="39" viewBox="0 0 35 39" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M33.3141 17.9493C34.5078 18.6385 34.5078 20.3615 33.3141 21.0507L3.43592 38.3009C2.24217 38.9901 0.749998 38.1286 0.749998 36.7502L0.75 2.24984C0.75 0.87142 2.24218 0.00991245 3.43592 0.699121L33.3141 17.9493Z" fill="#D9D9D9"/>
-                  </svg>
-              </div>
+                  </svg> 
+                </div>
+              </button>
             </div>
             <p class="hero__video_text">Посмотри это видео</p>
           </div>
@@ -209,7 +211,7 @@
                 <p class="performers__title">
                   Музыкальный<br>
                   лейбл, основанный<br>
-                  в июле<span>2018 года.</span></p>
+                  в июле <span>2018 года.</span></p>
               </div>
               <div class="performers__text_right">
                 <p class="performers__subtitle">
@@ -824,8 +826,7 @@
           </ul>
       </div>
     </section>
-    <section class="articles">
-      
+    <section id="articles" class="articles">
       <div class="background_blot_5">
         <img src="./img/blot/background_blot_5.png" alt="blot-top"/>
       </div> 
@@ -852,12 +853,18 @@
             <div class="articles__swiper swiper ">
               <ul class="articles__list swiper-wrapper">
                 <li class="articles__item swiper-slide">
-                  <div class="articles__item_img">
-                    <img src="./img/articles/articles_img_1.webp"/>
-                    <div class="articles__item_pause pause">
-                      <svg width="35" height="39" viewBox="0 0 35 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M33.3141 17.9493C34.5078 18.6385 34.5078 20.3615 33.3141 21.0507L3.43592 38.3009C2.24217 38.9901 0.749998 38.1286 0.749998 36.7502L0.75 2.24984C0.75 0.87142 2.24218 0.00991245 3.43592 0.699121L33.3141 17.9493Z" fill="#D9D9D9"/>
-                        </svg>
+                  <div class="articles__item_container">
+                    <div class="articles__wrapper">
+                      <button class="articles__img" vid="jZ6srnzxDL0" onclick="video_articles(this)">
+                        <img src="./img/articles/articles_img_1.webp" alt="human"/>
+                        <div class="articles__item_pause pause">
+                          <svg width="35" height="39" viewBox="0 0 35 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M33.3141 17.9493C34.5078 18.6385 34.5078 20.3615 33.3141 21.0507L3.43592 38.3009C2.24217 38.9901 0.749998 38.1286 0.749998 36.7502L0.75 2.24984C0.75 0.87142 2.24218 0.00991245 3.43592 0.699121L33.3141 17.9493Z" fill="#D9D9D9"/>
+                          </svg> 
+                        </div>
+                      </button> 
+                      <div class="articles_video">
+                      </div>
                     </div>
                   </div>
                   <div class="articles__item_text">
@@ -865,12 +872,11 @@
                   </div>
                 </li>
                 <li class="articles__item swiper-slide">
-                  <div class="articles__item_img">
-                    <img src="./img/articles/articles_img_2.webp"/>
-                    <div class="articles__item_pause pause">
-                      <svg width="35" height="39" viewBox="0 0 35 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M33.3141 17.9493C34.5078 18.6385 34.5078 20.3615 33.3141 21.0507L3.43592 38.3009C2.24217 38.9901 0.749998 38.1286 0.749998 36.7502L0.75 2.24984C0.75 0.87142 2.24218 0.00991245 3.43592 0.699121L33.3141 17.9493Z" fill="#D9D9D9"/>
-                        </svg>
+                  <div class="articles__item_container">
+                    <div class="articles__wrapper">
+                      <a href="#articles" class="articles__img">
+                        <img src="./img/articles/articles_img_2.webp" alt="human"/>
+                      </a> 
                     </div>
                   </div>
                   <div class="articles__item_text">
@@ -878,12 +884,11 @@
                   </div>
                 </li>
                 <li class="articles__item swiper-slide">
-                  <div class="articles__item_img">
-                    <img src="./img/articles/articles_img_3.webp"/>
-                    <div class="articles__item_pause pause">
-                      <svg width="35" height="39" viewBox="0 0 35 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M33.3141 17.9493C34.5078 18.6385 34.5078 20.3615 33.3141 21.0507L3.43592 38.3009C2.24217 38.9901 0.749998 38.1286 0.749998 36.7502L0.75 2.24984C0.75 0.87142 2.24218 0.00991245 3.43592 0.699121L33.3141 17.9493Z" fill="#D9D9D9"/>
-                        </svg>
+                  <div class="articles__item_container">
+                    <div class="articles__wrapper">
+                      <a href="#articles" class="articles__img">
+                        <img src="./img/articles/articles_img_3.webp" alt="human"/>
+                      </a> 
                     </div>
                   </div>
                   <div class="articles__item_text">
@@ -891,18 +896,25 @@
                   </div>
                 </li>
                 <li class="articles__item swiper-slide">
-                  <div class="articles__item_img">
-                    <img src="./img/articles/articles_img_4.webp"/>
-                    <div class="articles__item_pause pause">
-                      <svg width="35" height="39" viewBox="0 0 35 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M33.3141 17.9493C34.5078 18.6385 34.5078 20.3615 33.3141 21.0507L3.43592 38.3009C2.24217 38.9901 0.749998 38.1286 0.749998 36.7502L0.75 2.24984C0.75 0.87142 2.24218 0.00991245 3.43592 0.699121L33.3141 17.9493Z" fill="#D9D9D9"/>
-                        </svg>
+                  <div class="articles__item_container">
+                    <div class="articles__wrapper">
+                      <button class="articles__img" vid="u62hdimda-A" onclick="video_articles(this)">
+                        <img src="./img/articles/articles_img_4.webp" alt="human"/>
+                        <div class="articles__item_pause pause">
+                          <svg width="35" height="39" viewBox="0 0 35 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M33.3141 17.9493C34.5078 18.6385 34.5078 20.3615 33.3141 21.0507L3.43592 38.3009C2.24217 38.9901 0.749998 38.1286 0.749998 36.7502L0.75 2.24984C0.75 0.87142 2.24218 0.00991245 3.43592 0.699121L33.3141 17.9493Z" fill="#D9D9D9"/>
+                          </svg> 
+                        </div>
+                      </button> 
+                      <div class="articles_video">
+                      </div>
                     </div>
                   </div>
                   <div class="articles__item_text">
                     <p>КРЕСТ + VAUVISION 2019. 100.000 подписчиков и 2 больших аванса за год карьеры</p>
                   </div>
                 </li>
+               
               </ul>
             </div>
             <div class="articles__pagination_min swiper-pagination pagination_min"></div>

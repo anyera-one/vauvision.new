@@ -67,12 +67,17 @@ window.addEventListener('DOMContentLoaded', () => {
         prevEl: '.reviews__prev',
       },
       breakpoints: {
-        768:{
+        769:{
           slidesPerView: 2,
           centeredSlides: false,
           spaceBetween: 32,
         },
         1024: {
+          slidesPerView: 4,
+          spaceBetween: 31,
+          centeredSlides: false,
+        },
+        1440: {
           slidesPerView: 4,
           spaceBetween: 60,
           centeredSlides: false,
@@ -130,7 +135,7 @@ window.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 2,
         centeredSlides: false,
         },
-        768:{
+        769:{
           slidesPerView: 2,
           centeredSlides: false,
           spaceBetween: 21,
@@ -178,20 +183,20 @@ window.addEventListener('DOMContentLoaded', () => {
         1440: {
           spaceBetween: 55,
           slidesPerView: 2,
-          slidesPerGroup: 2,
           },
         768:{
           slidesPerView: 2,
-          slidesPerGroup: 2,
-
         },
       }
+    });
+    articlesSlider.on('transitionEnd', function() {
+      deletingVideoEvent();
     });
   }
   // end articles__swiper
 
   function addZero(num){
-      return (num > 9) ? num : '0' + num
+    return (num > 9) ? num : '0' + num
   }
 
   // start questions
@@ -264,7 +269,7 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   resizableSwiper(
-    '(max-width: 768px)',
+    '(max-width: 660px)',
     '.advantages__swiper.swiper',
     {
       // loop: true,
@@ -282,5 +287,31 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// start video
+function video_load(e){
+  e.onclick=null;
+  e.innerHTML = '<iframe src="https://www.youtube.com/embed/'+e.getAttribute('vid')+'?autoplay=1&controls=1&loop=1&playlist='+e.getAttribute('vid')+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+}
+// end video
 
+// start video_articles
+function video_articles(e) {
+  deletingVideoEvent()
+  e.parentNode.classList.add("active")
+  e.parentNode.children[1].innerHTML = '<iframe src="https://www.youtube.com/embed/'+e.getAttribute('vid')+'?autoplay=1&controls=1&loop=1&playlist='+e.getAttribute('vid')+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
+}
+// end video_articles
+
+// start deletingVideoEvent
+
+function deletingVideoEvent() {
+  document.querySelectorAll('.articles__wrapper').forEach((e) => {
+    if(e.classList.contains('active')) {
+      e.classList.remove('active')
+      e.children[1].innerHTML = ''
+    }
+  })
+}
+
+//end deletingVideoEvent
 
