@@ -3820,8 +3820,13 @@ a.footer__tel {
     height: 28px;
   }
   .footer__policy {
-    gap: 18px;
-    font-size: 15px;
+    gap: 10px;
+    font-size: 11px;
+  }
+  .footer__IP {
+    padding-top: 0px;
+    font-size: 9px;
+    line-height: 150%;
   }
 }
 /* end 430px */
