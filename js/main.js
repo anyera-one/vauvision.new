@@ -58,7 +58,13 @@ window.addEventListener('DOMContentLoaded', () => {
           } else {
             var reviewscountzero = '0';
           }
-          return '<span class="' + className + '">' + '<span class="count">' + reviewscountzero + (index + 1) + "</span>" + "</span>";
+          if (document.documentElement.clientWidth >= 1024) {
+            return '<span class="' + className + '">' + '<span class="count">' + reviewscountzero + ((index + 1) + 3) + "</span>" + "</span>";
+          } else if (document.documentElement.clientWidth >= 768) {
+            return '<span class="' + className + '">' + '<span class="count">' + reviewscountzero + ((index + 1) + 1) + "</span>" + "</span>";
+          } else {
+            return '<span class="' + className + '">' + '<span class="count">' + reviewscountzero + (index + 1) + "</span>" + "</span>";
+          }
         },
         clickable: true,
       },
@@ -98,6 +104,13 @@ window.addEventListener('DOMContentLoaded', () => {
     } else {
       var reviewstotalzero = '0';
     }
+    if (document.documentElement.clientWidth >= 1024) {
+      document.querySelector('.reviews__count').innerHTML = "04";
+    } else if (document.documentElement.clientWidth >= 768) {
+      document.querySelector('.reviews__count').innerHTML = "02";
+    } else {
+      document.querySelector('.reviews__count').innerHTML = "01";
+    }
     document.querySelector('.reviews__total').innerHTML = reviewstotalzero + document.querySelector('.reviews__list').children.length;
   }
   // end reviewsSlider
@@ -125,7 +138,11 @@ window.addEventListener('DOMContentLoaded', () => {
           } else {
             var pricecountzero = '0';
           }
-          return '<span class="' + className + '">' + '<span class="count">' + pricecountzero + (index + 1) + "</span>" + "</span>";
+          if (document.documentElement.clientWidth <= 767) {
+            return '<span class="' + className + '">' + '<span class="count">' + pricecountzero + (index + 1) + "</span>" + "</span>";
+          } else {
+            return '<span class="' + className + '">' + '<span class="count">' + pricecountzero + ((index + 1) + 1) + "</span>" + "</span>";
+          }
         },
         clickable: true,
       },
@@ -155,6 +172,11 @@ window.addEventListener('DOMContentLoaded', () => {
       var pricetotalzero = '';
     } else {
       var pricetotalzero = '0';
+    }
+    if (document.documentElement.clientWidth <= 767) {
+      document.querySelector('.price__count').innerHTML = "01";
+    } else {
+      document.querySelector('.price__count').innerHTML = "02";
     }
     document.querySelector('.price__total').innerHTML = pricetotalzero + document.querySelector('.price__list').children.length;
   }
