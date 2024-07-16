@@ -73,19 +73,14 @@ window.addEventListener('DOMContentLoaded', () => {
         prevEl: '.reviews__prev',
       },
       breakpoints: {
-        769:{
+        768:{
           slidesPerView: 2,
           centeredSlides: false,
           spaceBetween: 32,
         },
         1024: {
           slidesPerView: 4,
-          spaceBetween: 31,
-          centeredSlides: false,
-        },
-        1440: {
-          slidesPerView: 4,
-          spaceBetween: 60,
+          spaceBetween: 40,
           centeredSlides: false,
         }
       },
@@ -152,7 +147,7 @@ window.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 2,
         centeredSlides: false,
         },
-        769:{
+        768:{
           slidesPerView: 2,
           centeredSlides: false,
           spaceBetween: 21,
@@ -163,7 +158,7 @@ window.addEventListener('DOMContentLoaded', () => {
           const count = document.querySelector('.price__pagination .swiper-pagination-bullet-active .count');
           if (count) {
             const pricecount = document.querySelector('.price__count');
-            pricecount.innerHTML = count.innerHTML;
+            pricecount.innerText = count.innerText;
           }
         }
       }
@@ -291,7 +286,7 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   resizableSwiper(
-    '(max-width: 660px)',
+    '(max-width: 768px)',
     '.advantages__swiper.swiper',
     {
       // loop: true,
