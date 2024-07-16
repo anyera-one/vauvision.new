@@ -3101,22 +3101,26 @@ a.footer__tel {
     text-transform: uppercase;
   }
   .header__language {
-    padding: 5px;
+    padding: 8px;
     border: 1.03px solid var(--black);
     border-radius: 17px;
     gap: 6px;
+    font-size: 14px;
   }
   .header__language svg {
     width: 23px;
     height: 23px;
+    fill: none;
   }
-  .header__language {
-    font-size: 14px;
+  .header__language svg path {
+   stroke: var(--black);
   }
+
   .header_min__container,
   .header_min__container a{
     color: var(--black);
-    cursor: pointer
+    cursor: pointer;
+    font-size: 20px
   }
 
   .header_min__container a:hover{
