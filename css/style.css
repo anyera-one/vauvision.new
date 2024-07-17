@@ -1186,8 +1186,7 @@ a.header__logo {
 }
 
 .performers__btn {
-  width: 449px;
-  height: 90px;
+  padding: 40px;
   margin-top: 60px;
   font-weight: 400;
   font-size: 24px;
@@ -1362,7 +1361,7 @@ a.header__logo {
 }
 
 .advantages__promo_btn {
-  height: 90px;
+  padding: 30px;
   flex-basis: auto;
   font-weight: 400;
   font-size: 24px;
@@ -3065,8 +3064,8 @@ a.footer__tel {
     margin-top: 108px;
   }
   .performers__btn {
-    width: 239px;
-    height: 48px;
+    max-width: 239px;
+    padding: 30px 20px;
     margin-top: 32px;
     font-size: 12px;
   }
@@ -3116,7 +3115,7 @@ a.footer__tel {
     margin-left: 83px;
   }
   .advantages__promo_btn {
-    height: 48px;
+    padding: 20px;
     font-size: 12px;
   }
   .founder__background img{
@@ -3668,8 +3667,8 @@ a.footer__tel {
     max-width: 370px;
   }
   .performers__btn {
-    height: 72px;
     width: 100%;
+    padding: 20px 40px;
     margin-top: 40px;
     font-size: 20px;
   }
@@ -3905,7 +3904,6 @@ a.footer__tel {
   }
   .advantages__promo_btn {
     width: 100%;
-    height: 72px;
     max-width: 390px;
     font-size: 20px;
   }
