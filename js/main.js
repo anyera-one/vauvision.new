@@ -40,6 +40,68 @@ window.addEventListener('DOMContentLoaded', () => {
   })
   // end overlay
 
+  // start language_popup
+  const languagePRegion = document.querySelector('.language_popup__region');
+  const languagePButton = document.querySelector('.language_popup__button');
+  const languagePClose = document.querySelector('.language_popup__close');
+  const languagePDesktop = document.querySelector('.header__language_desktop');
+  const languagePMobile = document.querySelector('.header__language_mobile');
+  const languageP = document.querySelector('.language_popup');
+  const languagePLanguageActive = document.querySelectorAll(".language_popup .language_popup__language");
+  const languagePLanguage = document.getElementsByClassName("language_popup__language");
+  if(languageP) {
+    var i;
+    
+    for (i = 0; i < languagePLanguage.length; i++) {
+      languagePLanguage[i].onclick = function(e) {
+        languagePLanguageActive.forEach((n) => n.classList.remove("active"));
+        this.classList.add('active');
+      }
+    }
+    languagePDesktop.addEventListener('click', function() {
+      html.classList.add("noscroll");
+      languageP.classList.add("active");
+      bodyOverlay.classList.remove("active");
+      containerHeaderMin.classList.remove('active');
+      languagePRegion.classList.remove("active");
+    })
+    languagePMobile.addEventListener('click', function() {
+      html.classList.add("noscroll");
+      languageP.classList.add("active");
+      bodyOverlay.classList.remove("active");
+      containerHeaderMin.classList.remove('active');
+      languagePRegion.classList.remove("active");
+    })
+    languagePButton.addEventListener('click', function() {
+      if(languagePRegion.classList.contains('active')) {
+        languagePRegion.classList.remove("active");
+      } else {
+        languagePRegion.classList.add("active");
+      }
+    })
+    languagePClose.addEventListener('click', function() {
+      html.classList.remove("noscroll");
+      languageP.classList.remove("active");
+      languagePRegion.classList.remove("active");
+    })
+    document.getElementById("language_popup__region_search").oninput = function(){
+      var sparepartsinput, filter, i;
+      var sparepartsinput = document.getElementById("language_popup__region_search");
+      var filter = sparepartsinput.value.toUpperCase();
+      var sparepartsfilter = document.getElementById("language_popup__filter");
+      var searchparts = sparepartsfilter.getElementsByTagName("li");
+      for (i = 0; i < searchparts.length; i++) {
+        txtValue = searchparts[i].textContent || searchparts[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          searchparts[i].classList.remove('hidden');
+        } else {
+          searchparts[i].classList.add('hidden');
+        }
+      }
+    }
+  }
+  // end language_popup
+
   // start reviewsSlider
   const reviewsSlider = document.querySelector('.reviews__swiper');
   if(reviewsSlider){
@@ -351,4 +413,3 @@ function deletingVideoEvent() {
 }
 
 //end deletingVideoEvent
-
