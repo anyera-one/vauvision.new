@@ -368,7 +368,7 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   resizableSwiper(
-    '(max-width: 660px)',
+    '(max-width: 768px)',
     '.advantages__swiper.swiper',
     {
       // loop: true,
