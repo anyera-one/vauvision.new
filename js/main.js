@@ -266,7 +266,7 @@ window.addEventListener('DOMContentLoaded', () => {
       loop: true,
       speed: 500,
       slidesPerView: 1,
-      spaceBetween: 28,
+      spaceBetween: 10,
       slidesPerGroup: 1,
       pagination: {
             el: '.articles__pagination',
@@ -372,7 +372,7 @@ window.addEventListener('DOMContentLoaded', () => {
     '.advantages__swiper.swiper',
     {
       // loop: true,
-      slidesPerView: 1.1,
+      slidesPerView: 1.15,
       spaceBetween: 14,
       centeredSlides: true,
       pagination: {
