@@ -3433,12 +3433,12 @@ a.footer__tel {
     font-size: 12px;
   }
   .fill_form__block {
-    padding: 163px 20px 150px 53px;
-    justify-content: space-evenly;
+    padding: 163px 0 150px;
+    justify-content: space-around;
   }
   .fill_form__title {
     width: 460px;
-    font-size: 42px;
+    font-size: 52px;
   }
   .fill_form__item {
     padding-bottom: 16px;
