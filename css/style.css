@@ -28,8 +28,8 @@
   --y: 0px;
   --relx: 0px;
   --rely: 0px;
-  --title-font: "LiberationSans", sans-serif;
-  --text-font: "Inter", sans-serif;
+  --title-font: "LiberationSans", monospace;
+  --text-font: "Inter", monospace;
   --bg: #171616;
   --bg-beige: #E4DFD8;
   --bg-dbeige: #E8E3DD;
