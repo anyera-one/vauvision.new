@@ -1979,13 +1979,14 @@ width: 45%;
   z-index: 0;
   cursor: pointer;
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
   transition: all 2s;
 }
 
 .questions__item.active{
   background-size: cover;
 }
+
 
 .questions__item:nth-child(1n) {
   background-image: url('../img/questions/svg/questions__item_1.svg');
