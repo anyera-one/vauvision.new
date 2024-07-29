@@ -1092,22 +1092,22 @@ width: 45%;
   justify-content: space-between;
 } 
 
-.performers__text{
+.performers__text {
   text-transform: uppercase; 
 }
 
-.performers__title{
+.performers__title {
   font-weight: 700;
   font-size: 80px;
   line-height: 100%;
   letter-spacing: -0.1em;
 }
 
-.performers__title span{
+.performers__title span {
   color: var(--color)
 }
 
-.performers__subtitle{
+.performers__subtitle {
   font-weight: 700;
   font-size: 70px;
   color: rgba(255, 255, 255, 0.2); 
@@ -4501,17 +4501,21 @@ a.footer__tel {
     position: relative;
     gap: 15px;
   }
+  .animate_item.animated.advantages__item.swiper-slide,
   .advantages__item.swiper-slide{
     opacity: 0.5;
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
+    -webkit-transform: scale(0.9) translateY(0px);
+    transform: scale(0.9) translateY(0px);
     -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s linear;
-  transition: opacity 0.3s linear, transform 0.3s linear;
+    transition: opacity 0.3s linear, transform 0.3s linear;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
   }
+  .animate_item.animated.advantages__item.swiper-slide-active,
   .advantages__item.swiper-slide-active{
     opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
+    -webkit-transform: scale(1) translateY(0px);
+    transform: scale(1) translateY(0px);
   }
   .reviews__item_11 .reviews__item_title, 
   .reviews__item_10 .reviews__item_title span, 
@@ -4578,7 +4582,7 @@ a.footer__tel {
     -webkit-transform: scale(1);
     transform: scale(1);
   } 
- .price__slider {
+  .price__slider {
     padding: 52px 0 0;
   }
   .founder__background_min {
@@ -5306,8 +5310,7 @@ a.footer__tel {
 }
 
 
-.animate_item.animated
-.advantages__item {
+.animate_item.animated.advantages__item {
   opacity: 1;
   -webkit-transform: translateY(0px);
   transform: translateY(0px);

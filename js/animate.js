@@ -63,6 +63,7 @@ if(animateright){
 
 const animateItem = document.querySelector('.animate_item');
 const animateItems = document.querySelectorAll('.animate_item');
+const animateList = document.querySelectorAll('.advantages__list');
 if(animateItem){
   function onEntry(entry) {
     entry.forEach(change => {
@@ -73,7 +74,7 @@ if(animateItem){
 
   let animaterightsopt = {threshold: [0]};
   let animaterightsserv = new IntersectionObserver(onEntry, animaterightsopt);
-  [...animateItems].forEach(function (li) {
+  [...animateList].forEach(function (li) {
     for (let [index, elem] of [...li.children].entries()){
       elem.style.setProperty('--inc-step', index+1);
     }
