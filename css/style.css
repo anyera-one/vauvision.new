@@ -5305,8 +5305,8 @@ a.footer__tel {
   opacity: 0;
   -webkit-transform: translateY(30px);
   transform: translateY(30px);
-  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
-  transition: opacity 0.3s linear, transform 0.2s linear;
+  -webkit-transition: opacity 0.5s linear, -webkit-transform 0.4s linear;
+  transition: opacity 0.5s linear, transform 0.4s linear;
 }
 
 
@@ -5314,8 +5314,8 @@ a.footer__tel {
   opacity: 1;
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
-  -webkit-transition-delay: calc(var(--inc-step)*0.1s);
-  transition-delay: calc(var(--inc-step)*0.1s);
+  -webkit-transition-delay: calc(var(--inc-step)*0.2s);
+  transition-delay: calc(var(--inc-step)*0.2s);
 }
 
 /* end animate */
