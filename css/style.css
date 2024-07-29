@@ -5296,6 +5296,25 @@ a.footer__tel {
   transform: translateX(0);
 }
 
+/* .animate_item, */
+.advantages__item{
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear;
+}
+
+
+.animate_item.animated
+.advantages__item {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+  -webkit-transition-delay: calc(var(--inc-step)*0.1s);
+  transition-delay: calc(var(--inc-step)*0.1s);
+}
+
 /* end animate */
 
 .hidden {

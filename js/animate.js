@@ -53,3 +53,30 @@ if(animateright){
   let animaterightsserv = new IntersectionObserver(onEntry, animaterightsopt);
   for (let elm of animaterights) {animaterightsserv.observe(elm);}
 }
+
+// const subnav = document.querySelectorAll('.header__subnav_list');
+// [...subnav].forEach(function (li) {
+//   for (let [index, elem] of [...li.children].entries()){
+//     elem.style.setProperty('--inc-step', index+1);
+//   }
+// });
+
+const animateItem = document.querySelector('.animate_item');
+const animateItems = document.querySelectorAll('.animate_item');
+if(animateItem){
+  function onEntry(entry) {
+    entry.forEach(change => {
+    if(change.isIntersecting){
+      change.target.classList.add('animated');
+    }
+  });};
+
+  let animaterightsopt = {threshold: [0]};
+  let animaterightsserv = new IntersectionObserver(onEntry, animaterightsopt);
+  [...animateItems].forEach(function (li) {
+    for (let [index, elem] of [...li.children].entries()){
+      elem.style.setProperty('--inc-step', index+1);
+    }
+  });
+  for (let elm of animateItems) {animaterightsserv.observe(elm);}
+}
