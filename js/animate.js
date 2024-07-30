@@ -4,6 +4,8 @@ if(animateimage){
   function onEntry(entry) {entry.forEach(change => {
     if(change.isIntersecting){
       change.target.classList.add('animated');
+    } else {
+      change.target.classList.remove('animated');
     }
   });};
 
@@ -18,6 +20,8 @@ if(animatetop){
   function onEntry(entry) {entry.forEach(change => {
     if(change.isIntersecting){
       change.target.classList.add('animated');
+    } else {
+      change.target.classList.remove('animated');
     }
   });};
 
@@ -32,6 +36,8 @@ if(animateleft){
   function onEntry(entry) {entry.forEach(change => {
     if(change.isIntersecting){
       change.target.classList.add('animated');
+    } else {
+      change.target.classList.remove('animated');
     }
   });};
 
@@ -46,6 +52,8 @@ if(animateright){
   function onEntry(entry) {entry.forEach(change => {
     if(change.isIntersecting){
       change.target.classList.add('animated');
+    } else {
+      change.target.classList.remove('animated');
     }
   });};
 
@@ -54,30 +62,11 @@ if(animateright){
   for (let elm of animaterights) {animaterightsserv.observe(elm);}
 }
 
-// const subnav = document.querySelectorAll('.header__subnav_list');
-// [...subnav].forEach(function (li) {
-//   for (let [index, elem] of [...li.children].entries()){
-//     elem.style.setProperty('--inc-step', index+1);
-//   }
-// });
-
-const animateItem = document.querySelector('.animate_item');
-const animateItems = document.querySelectorAll('.animate_item');
-const animateList = document.querySelectorAll('.advantages__list');
-if(animateItem){
-  function onEntry(entry) {
-    entry.forEach(change => {
-    if(change.isIntersecting){
-      change.target.classList.add('animated');
-    }
-  });};
-
-  let animaterightsopt = {threshold: [0]};
-  let animaterightsserv = new IntersectionObserver(onEntry, animaterightsopt);
-  [...animateList].forEach(function (li) {
+if (document.querySelector('.header__nav_list')) {
+  const headerNavList = document.querySelectorAll('.header__nav_list');
+  [...headerNavList].forEach(function (li) {
     for (let [index, elem] of [...li.children].entries()){
       elem.style.setProperty('--inc-step', index+1);
     }
   });
-  for (let elm of animateItems) {animaterightsserv.observe(elm);}
 }
