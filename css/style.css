@@ -2377,8 +2377,30 @@ p.questions__item_title{
   text-transform: uppercase;
 }
 
-.footer__block a{
+.footer__block a {
   color:var(--bg)
+}
+
+.footer__messengers a {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__messengers a svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer__messengers a:nth-child(2) svg {
+  height: 70%;
+}
+
+.footer__messengers a:nth-child(3) svg {
+  height: 75%;
 }
 
 .footer__block a:hover{
@@ -2398,6 +2420,7 @@ p.questions__item_title{
 }
 
 a.footer__tel {
+  display: flex;
   padding-top: 20px;
   color: var(--color)
 }

@@ -4,8 +4,6 @@ if(animateimage){
   function onEntry(entry) {entry.forEach(change => {
     if(change.isIntersecting){
       change.target.classList.add('animated');
-    } else {
-      change.target.classList.remove('animated');
     }
   });};
 
@@ -20,8 +18,6 @@ if(animatetop){
   function onEntry(entry) {entry.forEach(change => {
     if(change.isIntersecting){
       change.target.classList.add('animated');
-    } else {
-      change.target.classList.remove('animated');
     }
   });};
 
@@ -36,8 +32,6 @@ if(animateleft){
   function onEntry(entry) {entry.forEach(change => {
     if(change.isIntersecting){
       change.target.classList.add('animated');
-    } else {
-      change.target.classList.remove('animated');
     }
   });};
 
@@ -52,8 +46,6 @@ if(animateright){
   function onEntry(entry) {entry.forEach(change => {
     if(change.isIntersecting){
       change.target.classList.add('animated');
-    } else {
-      change.target.classList.remove('animated');
     }
   });};
 
