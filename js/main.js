@@ -88,6 +88,14 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       }
     }
+
+    const languagePopupRName = document.querySelectorAll(".language_popup__region_name");
+    languagePopupRName.forEach((i) =>
+      i.addEventListener("click", function () {
+        languagePRegion.classList.remove("active");
+        document.querySelector(".language_popup__region_button").children[0].innerText = this.innerText;
+      })
+    );
   }
   // end language_popup
 
