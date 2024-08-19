@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
       bodyOverlay.classList.add("active");
     }
     containerHeaderMin.onclick = function(e){
-      if (e.target.classList != "header_min__text") {
+      if (e.target.classList != "header_min__text" && e.target.classList === "header__languages") {
         containerHeaderMin.classList.remove('active');
         html.classList.remove("noscroll");
         bodyOverlay.classList.remove("active");
@@ -36,30 +36,24 @@ window.addEventListener('DOMContentLoaded', () => {
   const languagePDesktop = document.querySelector('.header__language_desktop');
   const languagePMobile = document.querySelector('.header__language_mobile');
   const languageP = document.querySelector('.language_popup');
-  const languagePLanguageActive = document.querySelectorAll(".language_popup .language_popup__language");
-  const languagePLanguage = document.getElementsByClassName("language_popup__language");
+  const languagePLangRu = document.querySelector('.language_popup__language_ru');
+  const languagePLangEn = document.querySelector('.language_popup__language_en');
+  const languagePLangEs = document.querySelector('.language_popup__language_es');
   if(languageP) {
-    var i;
-    
-    for (i = 0; i < languagePLanguage.length; i++) {
-      languagePLanguage[i].onclick = function(e) {
-        languagePLanguageActive.forEach((n) => n.classList.remove("active"));
-        this.classList.add('active');
-      }
-    }
-    languagePDesktop.addEventListener('click', function() {
-      html.classList.add("noscroll");
-      languageP.classList.add("active");
-      bodyOverlay.classList.remove("active");
-      containerHeaderMin.classList.remove('active');
-      languagePRegion.classList.remove("active");
+    languagePLangRu.addEventListener('click', function() {
+      languageP.classList.remove("language_popup_en");
+      languageP.classList.remove("language_popup_es");
+      languageP.classList.add("language_popup_ru");
     })
-    languagePMobile.addEventListener('click', function() {
-      html.classList.add("noscroll");
-      languageP.classList.add("active");
-      bodyOverlay.classList.remove("active");
-      containerHeaderMin.classList.remove('active');
-      languagePRegion.classList.remove("active");
+    languagePLangEn.addEventListener('click', function() {
+      languageP.classList.remove("language_popup_ru");
+      languageP.classList.remove("language_popup_es");
+      languageP.classList.add("language_popup_en");
+    })
+    languagePLangEs.addEventListener('click', function() {
+      languageP.classList.remove("language_popup_ru");
+      languageP.classList.remove("language_popup_en");
+      languageP.classList.add("language_popup_es");
     })
     languagePButton.addEventListener('click', function() {
       if(languagePRegion.classList.contains('active')) {
@@ -88,14 +82,42 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       }
     }
-
     const languagePopupRName = document.querySelectorAll(".language_popup__region_name");
     languagePopupRName.forEach((i) =>
       i.addEventListener("click", function () {
         languagePRegion.classList.remove("active");
-        document.querySelector(".language_popup__region_button").children[0].innerText = this.innerText;
+        document.querySelector(".language_popup__region_button").children[0].innerText = this.parentElement.children[0].innerText;
+        document.querySelector(".language_popup__region_button").children[1].innerText = this.parentElement.children[1].innerText;
+        document.querySelector(".language_popup__region_button").children[2].innerText = this.parentElement.children[2].innerText;
       })
     );
+  }
+  if(languagePDesktop) {
+    languagePDesktop.addEventListener('click', function() {
+      if(!this.parentElement.classList.contains('active')) {
+        this.parentElement.classList.add("active");
+        languagePMobile.parentElement.classList.remove("active");
+      } else {
+        this.parentElement.classList.remove("active");
+        languagePMobile.parentElement.classList.remove("active");
+      }
+    })
+    languagePMobile.addEventListener('click', function() {
+      if(!this.parentElement.classList.contains('active')) {
+        this.parentElement.classList.add("active");
+        languagePDesktop.parentElement.classList.remove("active");
+      } else {
+        this.parentElement.classList.remove("active");
+        languagePDesktop.parentElement.classList.remove("active");
+      }
+    })
+    window.addEventListener('click', e => {
+      const target = e.target
+      if (!target.closest('.header__languages_desktop') && !target.closest('.header__languages_mobile')) {
+        languagePMobile.parentElement.classList.remove("active");
+        languagePDesktop.parentElement.classList.remove("active");
+      }
+    })
   }
   // end language_popup
 
