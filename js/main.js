@@ -39,6 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const languagePLangRu = document.querySelector('.language_popup__language_ru');
   const languagePLangEn = document.querySelector('.language_popup__language_en');
   const languagePLangEs = document.querySelector('.language_popup__language_es');
+  const languagePRB = document.querySelector(".language_popup__region_button");
   if(languageP) {
     languagePLangRu.addEventListener('click', function() {
       languageP.classList.remove("language_popup_en");
@@ -55,18 +56,18 @@ window.addEventListener('DOMContentLoaded', () => {
       languageP.classList.remove("language_popup_en");
       languageP.classList.add("language_popup_es");
     })
-    languagePButton.addEventListener('click', function() {
+    languagePRB.addEventListener('click', function() {
       if(languagePRegion.classList.contains('active')) {
         languagePRegion.classList.remove("active");
       } else {
         languagePRegion.classList.add("active");
       }
     })
-    languagePClose.addEventListener('click', function() {
-      html.classList.remove("noscroll");
-      languageP.classList.remove("active");
-      languagePRegion.classList.remove("active");
-    })
+    // languagePClose.addEventListener('click', function() {
+    //   html.classList.remove("noscroll");
+    //   languageP.classList.remove("active");
+    //   languagePRegion.classList.remove("active");
+    // })
     document.getElementById("language_popup__region_search").oninput = function(){
       var sparepartsinput, filter, i;
       var sparepartsinput = document.getElementById("language_popup__region_search");
@@ -86,9 +87,10 @@ window.addEventListener('DOMContentLoaded', () => {
     languagePopupRName.forEach((i) =>
       i.addEventListener("click", function () {
         languagePRegion.classList.remove("active");
-        document.querySelector(".language_popup__region_button").children[0].innerText = this.parentElement.children[0].innerText;
-        document.querySelector(".language_popup__region_button").children[1].innerText = this.parentElement.children[1].innerText;
-        document.querySelector(".language_popup__region_button").children[2].innerText = this.parentElement.children[2].innerText;
+        languagePRB.classList.add("active");
+        languagePRB.children[0].innerText = this.parentElement.children[0].innerText;
+        languagePRB.children[1].innerText = this.parentElement.children[1].innerText;
+        languagePRB.children[2].innerText = this.parentElement.children[2].innerText;
       })
     );
   }
