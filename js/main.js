@@ -45,16 +45,19 @@ window.addEventListener('DOMContentLoaded', () => {
       languageP.classList.remove("language_popup_en");
       languageP.classList.remove("language_popup_es");
       languageP.classList.add("language_popup_ru");
+      document.getElementById("language_popup__region_search").placeholder = 'Искать...'
     })
     languagePLangEn.addEventListener('click', function() {
       languageP.classList.remove("language_popup_ru");
       languageP.classList.remove("language_popup_es");
       languageP.classList.add("language_popup_en");
+      document.getElementById("language_popup__region_search").placeholder = 'Search...'
     })
     languagePLangEs.addEventListener('click', function() {
       languageP.classList.remove("language_popup_ru");
       languageP.classList.remove("language_popup_en");
       languageP.classList.add("language_popup_es");
+      document.getElementById("language_popup__region_search").placeholder = 'Buscar...'
     })
     languagePRB.addEventListener('click', function() {
       if(languagePRegion.classList.contains('active')) {
